@@ -1,0 +1,82 @@
+
+/* Screen bigger than 1200px */
+@media only screen and (max-width: 988px) {
+
+    .m_projectImage
+    {
+        max-width: 100%;
+        padding-bottom: 15px;
+
+        /* Center image */
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .m_projectText
+    {
+        max-width: 100%;
+        padding-bottom: 15px;
+
+        /* Center text, same as image */
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Screen smaller than 1200px */
+@media only screen and (min-width: 988px) {
+
+    .m_projectImage
+    {
+        max-width: 450px;
+        padding-bottom: 15px;
+
+        /* Center image */
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .m_projectText
+    {
+        max-width: 450px;
+        padding-bottom: 15px;
+
+        /* Center text, same as image */
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.m_heading 
+{
+    text-decoration: underline; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.m_projectHeading
+{
+    padding-left: 15px;
+    padding-bottom: 12px;
+}
+
+.m_bold 
+{
+    font-weight: bold;
+}
+
+.m_icon
+{
+    height: 32px;
+    width: 32px;
+    margin-right: 5px;
+}
+
+.m_contactInfo
+{
+    padding-bottom: 5px;
+}

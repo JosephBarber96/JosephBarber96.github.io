@@ -89,3 +89,19 @@
     display: block;
     margin: 0 auto;
 }
+
+.m_tutorialImage
+{
+    max-width: 375px;
+    padding-bottom: 15px;
+
+    /* Center image */
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.m_code
+{
+    color: rgb(65, 65, 65);
+}

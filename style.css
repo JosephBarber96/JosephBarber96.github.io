@@ -80,3 +80,12 @@
 {
     padding-bottom: 5px;
 }
+
+.m_centeredVideo
+{
+    width: 560px; /* you have to have a size or this method doesn't work */
+    height: 315px; /* think about making these max-width instead - might give you some more responsiveness */
+
+    display: block;
+    margin: 0 auto;
+}

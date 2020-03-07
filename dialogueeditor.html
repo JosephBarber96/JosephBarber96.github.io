@@ -37,7 +37,8 @@
 
 
     <h2 class="text-center">Unity Tool: Dialogue Editor </h2>
-    <p style="background-color:yellow;" class="text-center">This is a work-in-progress page. Not ready yet for public viewing.</p>
+    <p style="background-color:yellow;" class="text-center">This is a work-in-progress page. Not ready yet for public
+        viewing.</p>
 
     <div class="container">
 
@@ -45,7 +46,8 @@
         <h4 class="m_heading">Video Tutorial.</h4>
         <div class="row">
             <div class="col-sm">
-                <p style="background-color:yellow;" class="text-center">This youtube video will be replaced with the tutorial when it is finished.</p>
+                <p style="background-color:yellow;" class="text-center">This youtube video will be replaced with the
+                    tutorial when it is finished.</p>
                 <iframe src="https://www.youtube.com/embed/hMLkX4Oi1oY" class="m_centeredVideo"> </iframe>
             </div>
         </div>
@@ -56,115 +58,211 @@
         <ol>
             <li><a href="#editor">Conversation Editor</a></li>
             <li><a href="#prefab">Conversation Manager + UI Prefab</a></li>
+            <li><a href="#start">Triggering a conversation</a></li>
             <li><a href="#callbacks">Callbacks</a></li>
             <li><a href="#datastructure">Conversation datastructure</a></li>
         </ol>
 
         <div id="editor">
-            <h5 class="text-center">Conversation Editor</h5>
-            <p>In order to create a conversation, create a new GameObject and give it the script NPCConversation.</p>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_1.png"/>
+            <h5 class="text-center">1: Conversation Editor</h5>
 
-            <p>Open the editor window by selecting Window->DialogueEditor</p>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_2.png"/>
+            <!-- Intro -->
+            <p class="m_underlined">Intro</p>
+            <p>Conversations are made up of Speech nodes and Option nodes. Speech nodes represent something a character
+                will say, and Option nodes represent the
+                options available to the player.
+            </p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageLarge" src="images/dialogueeditor/full_conversation.png" />
+                </div>
+            </div>
 
-            <p>Select your object with the script in the hierarchy to view this conversation in the editor window. A new conversation begins with a single Speech node.</p>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_3.png"/>
+            <!-- Creating a conversation object -->
+            <p class="m_underlined">Creating a conversation object</p>
+            <p>In order to create a conversation, create a new GameObject and give it the script NPCConversation. In
+                order to open the Editor Window, select Window->DialogueEditor.
+                Select a conversation in the hierarchy in order to edit the conversation in the editor window.
+            </p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_1.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_2.png" />
+                </div>
+            </div>
 
-            <p>Select a node to edit it. A speech node has the following variables:</p>
+            <!-- Speech nodes -->
+            <p class="m_underlined">Speech nodes.</p>
+            <p>When you create a new conversation, it will contain a single speech node - this is the beginning of the
+                conversation.</p>
+
+            <p>Select a speech node to edit it. A speech node has the following variables:</p>
             <ul>
+                <li>Character Name: This is the name of the character who is speaking.</li>
                 <li>Dialogue: This is the speech for the node.</li>
                 <li>Icon: This is the icon of the NPC that will appear next to the speech.</li>
                 <li>Audio: This is an optional variable, you can play audio with this speech.</li>
-                <li>TMP Font: This is the TextMeshPro font for this speech. You are able to set fonts on a node-by-node basis.</li>
+                <li>TMP Font: This is the TextMeshPro font for this speech. You are able to set fonts on a node-by-node
+                    basis.</li>
                 <li>Events: These are Unity Events that will run when this speech node in a conversation is played.</li>
             </ul>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_4.png"/>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_aaa.png" />
+                </div>
+            </div>
 
-            <p>A speech node can have multiple options. These are the options the player can choose. Options can be created by right-clicking on the node and clicking "Create Option". Speech nodes can 
-                also be connected to pre-existing option nodes. This allows for branching and re-connecting conversation paths.</p>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_5.png"/>
-
-            <p>Option nodes have the following variables:</p>
+            <p>Speech nodes can either contain options for the user to select, lead onto other speech nodes, or have no
+                connections.</p>
             <ul>
-                <li>Option Text: the text which appears in the option box.</li>
-                <li>TMP Font: A custom font for this option.</li>
+                <li>If a speech node connects to option nodes, these options will appear for the player.</li>
+                <li>If a speech node connects to another speech node, the following speech node will occur afterwards.
+                </li>
+                <li>If a speech node is connected to nothing, it marks the end of the conversation.</li>
             </ul>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_6.png"/>
 
-            <p>Option nodes lead to a speech node. Selecting this option in-game will lead onto the connected speech node. You can either create a new speech node or 
-                connect an option to an existing speech-node by right-clicking on the option node.
-            </p>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_7.png"/>
+            <p>Right-clicking on a Speech node allows you to either create a new option, connect to an existing option,
+                create a new Speech node,
+                or connect to an existing speech node.</p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_5.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_6.png" />
+                </div>
+            </div>
 
-            <p>Unwanted connections between nodes can be deleted by right-clicking on the arrow and clicking "Delete this connection"</p>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_8.png"/>
+            <!-- Option nodes -->
+            <p class="m_underlined">Option nodes.</p>
+            <p>Option nodes will lead onto other speech nodes. When a user selects an option, the connected speech node
+                will occur next.</p>
+            <p>Select an option node to edit it. An option node has the following variables:</p>
+            <ul>
+                <li>Option text: This is the text for the option.</li>
+                <li>TMP Font: This is the TextMeshPro font for this option. You are able to set fonts on a node-by-node
+                    basis.</li>
+            </ul>
+            <p>Right-clicking on an Option node provides options to creating a new speech node or connecting to an
+                existing speech node.</p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_7.png" />
+                </div>
+            </div>
 
-            <p>Likewise, unwanted nodes can also be deleted by right-clicking on the ndoe and clicking "Delete this node". Deleting a node will also delete any connection to and from this node.</p>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_9.png"/>
-            <img class="m_tutorialImage" src="images/dialogueeditor/tut_10.png"/>
+
+
+            <!-- Deleting nodes, deleting connections, etc. -->
+            <p class="m_underlined">Deleting nodes and connections</p>
+            <p>Unwanted connections between nodes can be deleted by right-clicking on the arrow and clicking "Delete
+                this connection"</p>
+            <p>Likewise, unwanted nodes can also be deleted by right-clicking on the ndoe and clicking "Delete this
+                node". Deleting a node will also delete any connection to and from this node.</p>
+
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_8.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_9.png" />
+                </div>
+            </div>
         </div>
         <hr>
 
         <div id="prefab">
-            <h5 class="text-center">Conversation Manager + UI Prefab</h5>
-            <p>todo</p>            
+            <h5 class="text-center">2: Conversation Manager + UI Prefab</h5>
+            <p>A drag-and-drop UI prefab is provided. The ConversationManager prefab can be dragged as a child of a Canvas. Recommended settings are to use a Canvas with 
+                RenderMode set to Screen Space - Overlay and set the UI Scale Mode of the Canvas Scaler to Scale with Screen Size.</p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_canvas.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_canvasComponent.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_canvasScalarComponent.png" />
+                </div>
+            </div>
+
+            <p>The ConversationManager provides options for the Background image of the Dialogue box and the Options box. These images can be optionally 9-sliced images.
+                A preview render is displayed above the options. You can also select text-scrolling options.
+            </p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_conversationManager.png" />
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div id="start">
+            <h5 class="text-center">3: Triggering a conversation</h5>
+            <p>todo</p>
         </div>
         <hr>
 
         <div id="callbacks">
-            <h5 class="text-center">Callbacks</h5>
-            <p>If you are using the ConversationManager UI Prefab, there are two callbacks you can use which are invoked when a conversation starts and ends, respectively.</p>
-            <pre>
-                <code class="m_code">
+            <h5 class="text-center">4: Callbacks</h5>
+            <p>If you are using the ConversationManager UI Prefab, there are two callbacks you can use which are invoked
+                when a conversation starts and ends, respectively.</p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">
 DialogueEditor.ConversationManager.OnConversationStarted
 DialogueEditor.ConversationManager.OnConversationEnded
-                </code>
-            </pre>
+</pre>
+            </div>
+            <br>
 
             <p>Example use-case:</p>
-            <pre>
-                <code>
-using UnityEngine;
-using DialogueEditor;
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">UnityEngine</span>;
+<span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;
 
-public class ExampleClass : MonoBehaviour
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ExampleClass</span> : MonoBehaviour
 {
-    private void OnEnable()
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">OnEnable</span>()
     {
         ConversationManager.OnConversationStarted += ConversationStart;
         ConversationManager.OnConversationEnded += ConversationEnd;
     }
 
-    private void OnDisable()
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">OnDisable</span>()
     {
         ConversationManager.OnConversationStarted -= ConversationStart;
         ConversationManager.OnConversationEnded -= ConversationEnd;
     }
 
-    private void ConversationStart()
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">ConversationStart</span>()
     {
-        Debug.Log("A conversation has began.");
+        Debug.Log(<span style="background-color: #fff0f0">&quot;A conversation has began.&quot;</span>);
     }
 
-    private void ConversationEnd()
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">ConversationEnd</span>()
     {
-        Debug.Log("A conversation has ended.");
+        Debug.Log(<span style="background-color: #fff0f0">&quot;A conversation has ended.&quot;</span>);
     }
 }
-                </code>
-            </pre>
+</pre>
+            </div>
         </div>
         <hr>
 
         <div id="datastructure">
-            <h5 class="text-center">Conversation datastructure</h5>
+            <h5 class="text-center">5: Conversation datastructure</h5>
             <p>todo</p>
         </div>
         <hr>
 
     </div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -177,6 +275,27 @@ public class ExampleClass : MonoBehaviour
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script>
+        // The function actually applying the offset
+        function offsetAnchor() {
+            if (location.hash.length !== 0) {
+                window.scrollTo(window.scrollX, window.scrollY - 75);
+            }
+        }
+
+        // Captures click events of all <a> elements with href starting with #
+        $(document).on('click', 'a[href^="#"]', function (event) {
+            // Click events are captured before hashchanges. Timeout
+            // causes offsetAnchor to be called after the page jump.
+            window.setTimeout(function () {
+                offsetAnchor();
+            }, 0);
+        });
+
+        // Set the offset when entering page with hash present in the url
+        window.setTimeout(offsetAnchor, 0);
+    </script>
 </body s>
 
 </html>

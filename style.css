@@ -1,5 +1,5 @@
 
-/* Screen below small size */ 
+/* small screen*/ 
 @media only screen and (max-width: 988px) {
 
     .m_projectImage
@@ -23,9 +23,23 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    .m_tutorialImageLarge
+    {
+        max-width: 100%;
+        margin-bottom: 20px;
+
+        /* Box shadow */
+        box-shadow: 10px 10px 5px grey;
+
+        /* Center image */
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
-/* Screen above small size */
+/* big screen */
 @media only screen and (min-width: 988px) {
 
     .m_projectImage
@@ -49,6 +63,20 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    .m_tutorialImageLarge
+    {
+        max-width: 750px;
+        margin-bottom: 20px;
+
+        /* Box shadow */
+        box-shadow: 10px 10px 5px grey;
+
+        /* Center image */
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .m_heading 
@@ -56,6 +84,11 @@
     text-decoration: underline; 
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+.m_underlined
+{
+    text-decoration: underline;
 }
 
 .m_projectHeading
@@ -83,6 +116,8 @@
 
 .m_centeredVideo
 {
+    max-width: 100%;
+
     width: 560px; /* you have to have a size or this method doesn't work */
     height: 315px; /* think about making these max-width instead - might give you some more responsiveness */
 
@@ -90,15 +125,20 @@
     margin: 0 auto;
 }
 
-.m_tutorialImage
+.m_tutorialImageSmall
 {
-    max-width: 375px;
-    padding-bottom: 15px;
+    max-width: 400px;
+    margin-bottom: 25px;
+
+    
+    /* Box shadow */
+    box-shadow: 10px 10px 5px grey;
 
     /* Center image */
     display:block;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 .m_code

@@ -58,7 +58,7 @@
         <ol>
             <li><a href="#editor">Conversation Editor</a></li>
             <li><a href="#prefab">Conversation Manager + UI Prefab</a></li>
-            <li><a href="#start">Triggering a conversation</a></li>
+            <li><a href="#start">Triggering a conversation + Code info</a></li>
             <li><a href="#callbacks">Callbacks</a></li>
             <li><a href="#datastructure">Conversation datastructure</a></li>
         </ol>
@@ -69,8 +69,7 @@
             <!-- Intro -->
             <p class="m_underlined">Intro</p>
             <p>Conversations are made up of Speech nodes and Option nodes. Speech nodes represent something a character
-                will say, and Option nodes represent the
-                options available to the player.
+                will say, and Option nodes represent the options available to the player.
             </p>
             <div class="row">
                 <div class="col-md my-auto">
@@ -81,8 +80,8 @@
             <!-- Creating a conversation object -->
             <p class="m_underlined">Creating a conversation object</p>
             <p>In order to create a conversation, create a new GameObject and give it the script NPCConversation. In
-                order to open the Editor Window, select Window->DialogueEditor.
-                Select a conversation in the hierarchy in order to edit the conversation in the editor window.
+                order to open the Editor Window, select Window->DialogueEditor. Select a conversation in the hierarchy 
+                in order to edit the conversation in the editor window.
             </p>
             <div class="row">
                 <div class="col-md my-auto">
@@ -118,14 +117,12 @@
                 connections.</p>
             <ul>
                 <li>If a speech node connects to option nodes, these options will appear for the player.</li>
-                <li>If a speech node connects to another speech node, the following speech node will occur afterwards.
-                </li>
+                <li>If a speech node connects to another speech node, the following speech node will occur afterwards. </li>
                 <li>If a speech node is connected to nothing, it marks the end of the conversation.</li>
             </ul>
 
             <p>Right-clicking on a Speech node allows you to either create a new option, connect to an existing option,
-                create a new Speech node,
-                or connect to an existing speech node.</p>
+                create a new Speech node, or connect to an existing speech node.</p>
             <div class="row">
                 <div class="col-md my-auto">
                     <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_5.png" />
@@ -201,8 +198,43 @@
         <hr>
 
         <div id="start">
-            <h5 class="text-center">3: Triggering a conversation</h5>
-            <p>todo</p>
+            <h5 class="text-center">3: Triggering a conversation + Code info</h5>
+            <p>If you are using the ConversationManager UI Prefab, conversations can be triggered by calling a single function:</p>
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">ConversationManager.Instance.StartConversation();
+</pre></div>
+<br>
+
+            <p>Here is some example code, which shows a very basic NPC class which begins a conversation when the NPC is clicked on: </p>
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">UnityEngine</span>;
+<span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">NPC</span> : MonoBehaviour
+{
+    <span style="color: #008800; font-weight: bold">public</span> NPCConversation Conversation;
+
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">OnMouseOver</span>()
+    {
+        <span style="color: #008800; font-weight: bold">if</span> (Input.GetMouseButtonDown(<span style="color: #6600EE; font-weight: bold">0</span>))
+        {
+            ConversationManager.Instance.StartConversation(Conversation);
+        }
+    }
+}
+</pre></div>
+<br>
+        <p>There are also a number of additional Properties and Functions available to you:</p>
+        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">ConversationManager.Instance.IsConversationActive;      <span style="color: #888888">// Is a conversation currently happening?</span>
+ConversationManager.Instance.CurrentConversation;       <span style="color: #888888">// The current conversation (null if no conversation active).</span>
+ConversationManager.Instance.EndConversation();         <span style="color: #888888">// End a conversation early (e.g. player walks off).</span>
+</pre></div>
+
+    
+
+            
+
+
         </div>
         <hr>
 
@@ -258,7 +290,46 @@ DialogueEditor.ConversationManager.OnConversationEnded
 
         <div id="datastructure">
             <h5 class="text-center">5: Conversation datastructure</h5>
-            <p>todo</p>
+            <p>If you wish to write your own custom UI, and only use the editor-window for creating the conversation object, the conversation object can 
+                be deserialized into a simple and easy-to-use datastructure. </p>
+            <p>In order to deserialize the conversation, NPCConversation contains a function for doing so: this returns an object of type "Conversation":</p>
+            <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">NPCConversation NPCConv;
+Conversation conversation = NPCConv.Deserialize();
+</pre></div>
+
+            <br>
+            <p>A NPCConversation deserializes into a tree-like data structure. A "Conversation" object contains a single member which is the root speech node of the conversation. From here, 
+                the nodes are connected in a tree-like pattern. The following classes make up the tree-like structure of a Conversation:
+            </p>
+            <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Conversation</span>
+{
+    <span style="color: #008800; font-weight: bold">public</span> SpeechNode Root;
+}
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">abstract</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ConversationNode</span>
+{
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">string</span> Text;
+    <span style="color: #008800; font-weight: bold">public</span> TMPro.TMP_FontAsset TMPFont;
+}
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">SpeechNode</span> : ConversationNode
+{
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">string</span> Name;
+    <span style="color: #008800; font-weight: bold">public</span> Sprite Icon;
+    <span style="color: #008800; font-weight: bold">public</span> AudioClip Audio;
+    <span style="color: #008800; font-weight: bold">public</span> List&lt;OptionNode&gt; Options;    <span style="color: #888888">// The Options available on this Speech node, if any.</span>
+    <span style="color: #008800; font-weight: bold">public</span> SpeechNode Dialogue;         <span style="color: #888888">// The Speech node following this, if any.</span>
+    <span style="color: #008800; font-weight: bold">public</span> UnityEngine.Events.UnityEvent Event;
+}
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">OptionNode</span> : ConversationNode
+{
+    <span style="color: #008800; font-weight: bold">public</span> SpeechNode Dialogue;         <span style="color: #888888">// The dialogue following this option.</span>
+}
+</pre></div>
+
+
+
         </div>
         <hr>
 

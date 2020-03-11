@@ -56,15 +56,28 @@
         <!-- Written tutorial -->
         <h4 class="m_heading">Written Tutorial.</h4>
         <ol>
-            <li><a href="#editor">Conversation Editor</a></li>
+            <li><a href="#what">What is Dialogue Editor?</a></li>
+            <li><a href="#editor">Editor Window</a></li>
             <li><a href="#prefab">Conversation Manager + UI Prefab</a></li>
             <li><a href="#start">Triggering a conversation + Code info</a></li>
             <li><a href="#callbacks">Callbacks</a></li>
             <li><a href="#datastructure">Conversation datastructure</a></li>
         </ol>
+        <hr>
+
+        <div id="what">
+            <h5 class="text-center">1: What is Dialogue Editor?</h5>
+            <p>Dialogue Editor is a Unity tool that allows you to quickly and easily add conversations into your game.
+            </p>
+            <p>The tool comes with an editor window that allows you to create and edit conversations.</p>
+            <p>This tool also comes with a pre-made, customisable UI prefab so that no coding or UI work is required.
+                However, if you are comfortable with programming and wish to create your own UI implementation,
+                each conversation can be accessed as a simple data structure.</p>
+        </div>
+        <hr>
 
         <div id="editor">
-            <h5 class="text-center">1: Conversation Editor</h5>
+            <h5 class="text-center">2: Editor Window</h5>
 
             <!-- Intro -->
             <p class="m_underlined">Intro</p>
@@ -80,7 +93,7 @@
             <!-- Creating a conversation object -->
             <p class="m_underlined">Creating a conversation object</p>
             <p>In order to create a conversation, create a new GameObject and give it the script NPCConversation. In
-                order to open the Editor Window, select Window->DialogueEditor. Select a conversation in the hierarchy 
+                order to open the Editor Window, select Window -> DialogueEditor. Select a conversation in the hierarchy
                 in order to edit the conversation in the editor window.
             </p>
             <div class="row">
@@ -117,7 +130,8 @@
                 connections.</p>
             <ul>
                 <li>If a speech node connects to option nodes, these options will appear for the player.</li>
-                <li>If a speech node connects to another speech node, the following speech node will occur afterwards. </li>
+                <li>If a speech node connects to another speech node, the following speech node will occur afterwards.
+                </li>
                 <li>If a speech node is connected to nothing, it marks the end of the conversation.</li>
             </ul>
 
@@ -171,9 +185,15 @@
         <hr>
 
         <div id="prefab">
-            <h5 class="text-center">2: Conversation Manager + UI Prefab</h5>
-            <p>A drag-and-drop UI prefab is provided. The ConversationManager prefab can be dragged as a child of a Canvas. Recommended settings are to use a Canvas with 
-                RenderMode set to Screen Space - Overlay and set the UI Scale Mode of the Canvas Scaler to Scale with Screen Size.</p>
+            <h5 class="text-center">3: Conversation Manager + UI Prefab</h5>
+            <p>A pre-made, customisable UI prefab is provided. The ConversationManager prefab can be dragged as a child
+                of a Canvas.</p>
+
+            <p>Recommended settings:</p>
+            <ul>
+                <li>Canvas - RenderMode: "Screen Spae - Overlay"</li>
+                <li>Canvas Scaler - UI Scale Mode: "Scale with Screen size"</li>
+            </ul>
             <div class="row">
                 <div class="col-md my-auto">
                     <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_canvas.png" />
@@ -186,7 +206,8 @@
                 </div>
             </div>
 
-            <p>The ConversationManager provides options for the Background image of the Dialogue box and the Options box. These images can be optionally 9-sliced images.
+            <p>The ConversationManager provides options for the Background image of the Dialogue box and the Options
+                box. These images can be optionally 9-sliced images.
                 A preview render is displayed above the options. You can also select text-scrolling options.
             </p>
             <div class="row">
@@ -198,16 +219,34 @@
         <hr>
 
         <div id="start">
-            <h5 class="text-center">3: Triggering a conversation + Code info</h5>
-            <p>If you are using the ConversationManager UI Prefab, conversations can be triggered by calling a single function:</p>
+            <h5 class="text-center">4: Triggering a conversation + Code info</h5>
+            <p>If you are using the ConversationManager UI Prefab, conversations can be triggered by calling a single
+                function:</p>
             <!-- HTML generated using hilite.me -->
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">ConversationManager.Instance.StartConversation();
-</pre></div>
-<br>
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">ConversationManager.Instance.StartConversation();
+</pre>
+            </div>
+            <br>
 
-            <p>Here is some example code, which shows a very basic NPC class which begins a conversation when the NPC is clicked on: </p>
+            <p>Note: You will need to add the "DialogueEditor" namespace to your script. This can be done by adding the
+                following line at the top: </p>
             <!-- HTML generated using hilite.me -->
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">UnityEngine</span>;
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;
+</pre>
+            </div>
+            <br>
+
+
+            <p>Here is some example code, which shows a very basic NPC class which begins a conversation when the NPC is
+                clicked on: </p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">UnityEngine</span>;
 <span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;
 
 <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">NPC</span> : MonoBehaviour
@@ -222,24 +261,29 @@
         }
     }
 }
-</pre></div>
-<br>
-        <p>There are also a number of additional Properties and Functions available to you:</p>
-        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">ConversationManager.Instance.IsConversationActive;      <span style="color: #888888">// Is a conversation currently happening?</span>
+</pre>
+            </div>
+            <br>
+            <p>There are also a number of additional Properties and Functions available to you:</p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">ConversationManager.Instance.IsConversationActive;      <span style="color: #888888">// Is a conversation currently happening?</span>
 ConversationManager.Instance.CurrentConversation;       <span style="color: #888888">// The current conversation (null if no conversation active).</span>
 ConversationManager.Instance.EndConversation();         <span style="color: #888888">// End a conversation early (e.g. player walks off).</span>
-</pre></div>
+</pre>
+            </div>
 
-    
 
-            
+
+
 
 
         </div>
         <hr>
 
         <div id="callbacks">
-            <h5 class="text-center">4: Callbacks</h5>
+            <h5 class="text-center">5: Callbacks</h5>
             <p>If you are using the ConversationManager UI Prefab, there are two callbacks you can use which are invoked
                 when a conversation starts and ends, respectively.</p>
             <!-- HTML generated using hilite.me -->
@@ -248,6 +292,16 @@ ConversationManager.Instance.EndConversation();         <span style="color: #888
                 <pre style="margin: 0; line-height: 125%">
 DialogueEditor.ConversationManager.OnConversationStarted
 DialogueEditor.ConversationManager.OnConversationEnded
+</pre>
+            </div>
+            <br>
+
+            <p>Note: You will need to add the "DialogueEditor" namespace to your script. This can be done by adding the
+                following line at the top: </p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;
 </pre>
             </div>
             <br>
@@ -289,19 +343,41 @@ DialogueEditor.ConversationManager.OnConversationEnded
         <hr>
 
         <div id="datastructure">
-            <h5 class="text-center">5: Conversation datastructure</h5>
-            <p>If you wish to write your own custom UI, and only use the editor-window for creating the conversation object, the conversation object can 
+            <h5 class="text-center">6: Conversation datastructure</h5>
+            <p>If you wish to write your own custom UI, and only use the editor-window for creating the conversation
+                object, the conversation object can
                 be deserialized into a simple and easy-to-use datastructure. </p>
-            <p>In order to deserialize the conversation, NPCConversation contains a function for doing so: this returns an object of type "Conversation":</p>
-            <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">NPCConversation NPCConv;
+
+            <p>Note: You will need to add the "DialogueEditor" namespace to your script. This can be done by adding the
+                following line at the top: </p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre
+                    style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;</pre>
+            </div>
+            <br>
+
+            <p>In order to deserialize the conversation, NPCConversation contains a function for doing so: this returns
+                an object of type "Conversation":</p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">NPCConversation NPCConv;
 Conversation conversation = NPCConv.Deserialize();
-</pre></div>
+</pre>
+            </div>
 
             <br>
-            <p>A NPCConversation deserializes into a tree-like data structure. A "Conversation" object contains a single member which is the root speech node of the conversation. From here, 
-                the nodes are connected in a tree-like pattern. The following classes make up the tree-like structure of a Conversation:
+            <p>A NPCConversation deserializes into a tree-like data structure. A "Conversation" object contains a single
+                member which is the root speech node of the conversation. From here,
+                the nodes are connected in a tree-like pattern. The following classes make up the tree-like structure of
+                a Conversation:
             </p>
-            <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Conversation</span>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Conversation</span>
 {
     <span style="color: #008800; font-weight: bold">public</span> SpeechNode Root;
 }
@@ -326,7 +402,8 @@ Conversation conversation = NPCConv.Deserialize();
 {
     <span style="color: #008800; font-weight: bold">public</span> SpeechNode Dialogue;         <span style="color: #888888">// The dialogue following this option.</span>
 }
-</pre></div>
+</pre>
+            </div>
 
 
 

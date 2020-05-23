@@ -19,7 +19,7 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="margin-bottom: 15px">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top m_navBar">
         <span class="navbar-brand m_brand">Joseph Barber</span>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -36,25 +36,40 @@
     </nav>
 
 
-    <h2 class="text-center">Joseph Barber</h2>
-    <h3 class="text-center">Games Programmer</h3>
+    <!-- Main body container -->
+    <div class="container m_mainContainer">
 
-    <div class="container">
+        <!-- Joseph Barber title -->
+        <div class="row">
+            <div class="col-lg">
+                <br>
+                <h1 class="text-center">Joseph Barber</h1>
+                <h2 class="text-center">Games Programmer</h2>
+                <br>
+            </div>
+        </div>
 
-        <!-- Professional projects -->
-        <h4 class="m_heading">Professional projects.</h4>
+        
+        <!-- Heading: Professional projects -->
+        <div class="row m_heading">
+            <div class="col-lg">
+                <h3>Professional projects.</h3>
+            </div>
+        </div>
+        <br>
 
         <!-- SEVR -->
         <div class="row">
+
             <div class="col-sm-12">
-                <h5 class="m_projectHeading text-center">Sniper Elite VR</h5>
+                <h3 class="m_projectHeading text-center">Sniper Elite VR</h3>
             </div>
 
             <div class="col-lg-5 my-auto">
                 <img class="m_projectImage" src="images/sevr.png">
             </div>
 
-            <div class="col-lg-7">
+            <div class="col-lg-7 m_projectText">
                 <p>Sniper Elite VR is a standalone game in the Sniper Elite series, fully built from the ground up to be a VR exclusive.</p>
 
                 <div class="row">
@@ -83,14 +98,14 @@
         <!-- IASNA -->
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="m_projectHeading text-center">Ice Age: Scrat's Nutty Adventure</h5>
+                <h3 class="m_projectHeading text-center">Ice Age: Scrat's Nutty Adventure</h3>
             </div>
 
             <div class="col-lg-5 my-auto">
                 <img class="m_projectImage" src="images/iasna.png">
             </div>
 
-            <div class="col-lg-7">
+            <div class="col-lg-7 m_projectText">
                 <p>Ice Age Scrat's Nutty Adventure is a 3d platformer for the Nintendo Switch, PS4, Xbox One and PC.</p>
 
                 <div class="row">
@@ -114,26 +129,64 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- Gap below <hr> for separating Professional and Personal projects -->
-        <hr style="padding-bottom: 10px;">
 
-        <!-- Personal projects -->
-        <h4 class="m_heading">Personal projects.</h4>
+        <!-- Heading: Personal projects -->
+        <div class="row m_heading">
+            <div class="col-lg">
+                <h3>Personal projects.</h3>
+            </div>
+        </div>
+        <br>
+
+                <!-- Unity Dialogue Editor -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="m_projectHeading text-center">Unity Tool: Dialogue Editor</h3>
+                    </div>
+                
+                    <div class="col-lg-5 my-auto">
+                        <img class="m_projectImage" src="images/dialogueeditor.png">
+                    </div>
+        
+                    <div class="col-lg-7 m_projectText ">
+                        <p>Dialogue Editor is a custom visual node editor which alows users to easily create branching dialogue. <p>
+                        <p>My goal was to create a polished, simple and easy-to-use tool that would make it easy for people to implement complex and branching dialogue into their games.</p>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <p class="m_bold">Skills</p>
+                                <ul>
+                                    <li>C#</li>
+                                    <li>Unity Editor</li>
+                                </ul>
+                            </div>
+        
+                            <div class="col-lg-5">
+                                <p class="m_bold">Links</p>
+                                <ul>
+                                    <!-- <li><a target="_blank" href="https://assetstore.unity.com/packages/slug/168329">Asset store (pending approval)</a></li> -->
+                                    <li><a target="_blank" href="https://github.com/JosephBarber96/UnityDialogueEditor">Github repo</a></li>
+                                    <li><a target="_blank" href="dialogueeditor.html">Online docss</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+                <hr>
 
         <!-- SFMania -->
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="m_projectHeading text-center">SFMania</h5>
+                <h3 class="m_projectHeading text-center">SFMania</h3>
             </div>
 
             <div class="col-lg-5 my-auto">
                 <img class="m_projectImage" src="images/sfmania.png">
             </div>
 
-            <div class="col-lg-7">
+            <div class="col-lg-7 m_projectText">
                 <p>SFMania is an in-development clone of the PC rhythm game StepMania.</p>
                 <p>Creating my own rhythm game implementation proved to be great fun as well as an excellent learning experience. This project has provided me with a good opportunity to learn and practise C++. </p>
 
@@ -157,39 +210,7 @@
         </div>
         <hr>
 
-        <!-- Unity Dialogue Editor -->
-        <div class="row">
-            <div class="col-sm-12">
-                <h5 class="m_projectHeading text-center">Unity Tool: Dialogue Editor</h5>
-            </div>
-        
-            <div class="col-lg-5 my-auto">
-                <img class="m_projectImage" src="images/dialogueeditor.png">
-            </div>
 
-            <div class="col-lg-7">
-                <p>Dialogue Editor is a custom visual node editor which alows users to easily create branching dialogue. <p>
-                <p>My goal was to create a polished, simple and easy-to-use tool that would make it easy for people to implement complex and branching dialogue into their games.</p>
-                <div class="row">
-                    <div class="col-lg-7">
-                        <p class="m_bold">Skills</p>
-                        <ul>
-                            <li>C#</li>
-                            <li>Unity Editor</li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-5">
-                        <p class="m_bold">Links</p>
-                        <ul>
-                            <li><a target="_blank" href="https://assetstore.unity.com/packages/slug/168329">Asset store</a></li>
-                            <li><a target="_blank" href="https://github.com/JosephBarber96/UnityDialogueEditor">Github repo</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div>
     </div>
 
 

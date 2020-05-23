@@ -4,7 +4,7 @@
 
     .m_projectImage
     {
-        max-width: 100%;
+        max-width: 80%;
         padding-bottom: 15px;
 
         /* Center image */
@@ -15,7 +15,7 @@
 
     .m_projectText
     {
-        max-width: 100%;
+        max-width: 80%;
         padding-bottom: 15px;
 
         /* Center text, same as image */
@@ -55,7 +55,7 @@
 
     .m_projectText
     {
-        max-width: 450px;
+        max-width: 100%;
         padding-bottom: 15px;
 
         /* Center text, same as image */
@@ -79,12 +79,31 @@
     }
 }
 
+body {
+    background-color: #8D99AE;
+}
+
 .m_heading 
 {
-    text-decoration: underline; 
+    background-color: #2B2D42;
+    color: white;
+    text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
 }
+
+.m_mainContainer
+{
+    background-color: #EDF2F4;
+    -webkit-box-shadow: -7px 0px 10px 0px rgba(0, 0, 0, 0.3 ), 
+    7px 0px 10px 0px rgba(0, 0, 0, 0.3 );
+    -moz-box-shadow: -7px 0px 10px 0px rgba(0, 0, 0, 0.3 ), 
+    7px 0px 10px 0px rgba(0, 0, 0, 0.3 );
+    box-shadow: -7px 0px 10px 0px rgba(0, 0, 0, 0.3 ), 
+    7px 0px 10px 0px rgba(0, 0, 0, 0.3 );
+}
+
+
 
 .m_underlined
 {
@@ -93,8 +112,8 @@
 
 .m_projectHeading
 {
-    padding-left: 15px;
-    padding-bottom: 12px;
+    margin-bottom: 30px;
+    text-decoration: underline;
 }
 
 .m_bold 

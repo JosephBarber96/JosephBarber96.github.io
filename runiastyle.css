@@ -1,0 +1,65 @@
+/* Html elements */
+
+h1, h2, h3, h4, h5, p {
+    color: whitesmoke;
+}
+
+ul {
+    list-style: none; /* Remove default bullets */
+  }
+  
+  ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: whitesmoke; /* Change the color */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+a {
+    color: whitesmoke;
+}
+
+hr {
+    background-color: rgba(245,245,245, 0.8);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+body {
+    background-color: rgb(28, 28, 28);
+}
+
+/* Own classes */
+
+.m_title {
+    padding-top: 50px;
+}
+
+.m_textShadow {
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.m_textShadowLight {
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.m_projectRow {
+    padding-top: 50px;
+}
+
+.m_projectText {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.m_projectImage {
+    max-width: 300px;
+    padding-bottom: 20px;
+}
+
+.m_contact {
+    padding-top: 150px;
+    justify-content: center;
+}

@@ -18,7 +18,7 @@
 
 <body>
 
-    
+
 
     <div class="container m_mainContainer">
 
@@ -38,7 +38,7 @@
         </div>
         <br>
         <ol>
-        <li><a target="_blank" href="https://assetstore.unity.com/packages/slug/168329">Asset store.</a></li>
+            <li><a target="_blank" href="https://assetstore.unity.com/packages/slug/168329">Asset store.</a></li>
         </ol>
 
 
@@ -63,7 +63,7 @@
                 <h4>Written Tutorial.</h4>
             </div>
         </div>
-        <br>    
+        <br>
         <ol>
             <li><a href="#what">What is Dialogue Editor?</a></li>
             <li><a href="#editor">Editor Window</a></li>
@@ -121,17 +121,28 @@
 
             <p>Select a speech node to edit it. A speech node has the following variables:</p>
             <ul>
-                <li>Character Name: This is the name of the character who is speaking.</li>
-                <li>Dialogue: This is the speech for the node.</li>
-                <li>Icon: This is the icon of the NPC that will appear next to the speech.</li>
-                <li>Audio: This is an optional variable, you can play audio with this speech.</li>
-                <li>TMP Font: This is the TextMeshPro font for this speech. You are able to set fonts on a node-by-node
+                <li><b>Character Name:</b> This is the name of the character who is speaking.</li>
+                <li><b>Dialogue:</b> This is the speech for the node.</li>
+                <li><b>Automatically Advance:</b> This option is available if a speech node leads onto another speech
+                    node, or nothing.
+                    When this option is selected, the dialogue will automatically continue without the user needing to
+                    click anything.
+                    <ul>
+                        <li><b>Display Continue Option:</b> Should the "Continue" / "End" options still display?</li>
+                        <li><b>Dialogue Time:</b> How long to wait before the dialogue automatically advances.</li>
+                    </ul>
+                </li>
+                <li><b>Icon:</b> This is the icon of the NPC that will appear next to the speech.</li>
+                <li><b>Audio:</b> This is an optional variable, you can play audio with this speech.</li>
+                <li><b>TMP Font:</b> This is the TextMeshPro font for this speech. You are able to set fonts on a
+                    node-by-node
                     basis.</li>
-                <li>Events: These are Unity Events that will run when this speech node in a conversation is played.</li>
+                <li><b>Events:</b> These are Unity Events that will run when this speech node in a conversation is
+                    played.</li>
             </ul>
             <div class="row">
                 <div class="col-md my-auto">
-                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_aaa.png" />
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_4.png" />
                 </div>
             </div>
 
@@ -161,8 +172,9 @@
                 will occur next.</p>
             <p>Select an option node to edit it. An option node has the following variables:</p>
             <ul>
-                <li>Option text: This is the text for the option.</li>
-                <li>TMP Font: This is the TextMeshPro font for this option. You are able to set fonts on a node-by-node
+                <li><b>Option text:</b> This is the text for the option.</li>
+                <li><b>TMP Font:</b> This is the TextMeshPro font for this option. You are able to set fonts on a
+                    node-by-node
                     basis.</li>
             </ul>
             <p>Right-clicking on an Option node provides options to creating a new speech node or connecting to an
@@ -384,26 +396,49 @@ Conversation conversation = NPCConv.Deserialize();
                 a Conversation:
             </p>
             <!-- HTML generated using hilite.me -->
-            <div
-                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Conversation</span>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Conversation</span>
 {
     <span style="color: #008800; font-weight: bold">public</span> SpeechNode Root;
 }
 
 <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">abstract</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ConversationNode</span>
 {
+	<span style="color: #888888">// The main body text</span>
     <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">string</span> Text;
+	
     <span style="color: #008800; font-weight: bold">public</span> TMPro.TMP_FontAsset TMPFont;
 }
 
 <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">SpeechNode</span> : ConversationNode
 {
+	<span style="color: #888888">// The name of the speaker</span>
     <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">string</span> Name;
+	
+	<span style="color: #888888">// Should this dialogue node automatically advance?</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">bool</span> AutomaticallyAdvance; 
+	
+	<span style="color: #888888">// Should the &quot;Continue&quot; / &quot;End&quot; buttons still be visible?</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">bool</span> AutoAdvanceShouldDisplayOption; 
+	
+	<span style="color: #888888">// How long to wait before advancing</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">float</span> TimeUntilAdvance; 
+	
+	<span style="color: #888888">// The Icon of the spaker</span>
     <span style="color: #008800; font-weight: bold">public</span> Sprite Icon;
+	
+	<span style="color: #888888">// Audio to play</span>
     <span style="color: #008800; font-weight: bold">public</span> AudioClip Audio;
-    <span style="color: #008800; font-weight: bold">public</span> List&lt;OptionNode&gt; Options;    <span style="color: #888888">// The Options available on this Speech node, if any.</span>
-    <span style="color: #008800; font-weight: bold">public</span> SpeechNode Dialogue;         <span style="color: #888888">// The Speech node following this, if any.</span>
+	
+	<span style="color: #888888">// Normalised volume, 0-1, of the audio</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">float</span> Volume;
+	
+	<span style="color: #888888">// The Options available on this Speech node, if any.</span>
+    <span style="color: #008800; font-weight: bold">public</span> List&lt;OptionNode&gt; Options;
+
+	<span style="color: #888888">// The Speech node following this, if any.	</span>
+    <span style="color: #008800; font-weight: bold">public</span> SpeechNode Dialogue; 
+	
+	<span style="color: #888888">// The UnityEvent</span>
     <span style="color: #008800; font-weight: bold">public</span> UnityEngine.Events.UnityEvent Event;
 }
 
@@ -411,8 +446,10 @@ Conversation conversation = NPCConv.Deserialize();
 {
     <span style="color: #008800; font-weight: bold">public</span> SpeechNode Dialogue;         <span style="color: #888888">// The dialogue following this option.</span>
 }
-</pre>
-            </div>
+</pre></div>
+
+
+
 
 
 

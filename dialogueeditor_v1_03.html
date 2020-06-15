@@ -67,15 +67,16 @@
         <ol>
             <li><a href="#what">What is Dialogue Editor?</a></li>
             <li><a href="#editor">Editor Window</a></li>
-            <li><a href="#prefab">Conversation Manager + UI Prefab</a></li>
-            <li><a href="#start">Triggering a conversation + Code info</a></li>
+            <li><a href="#prefab">Conversation Manager UI Prefab</a></li>
+            <li><a href="#start">Triggering a conversation and Code info</a></li>
+            <li><a href="#customInput">Custom Input</a></li>
             <li><a href="#callbacks">Callbacks</a></li>
             <li><a href="#datastructure">Conversation datastructure (for creating your own UI)</a></li>
         </ol>
         <hr>
 
         <div id="what">
-            <h5 class="text-center">1: What is Dialogue Editor?</h5>
+            <h5 class="text-center">What is Dialogue Editor?</h5>
             <p>Dialogue Editor is a Unity tool that allows you to quickly and easily add conversations into your game.
             </p>
             <p>The tool comes with an editor window that allows you to create and edit conversations.</p>
@@ -86,7 +87,7 @@
         <hr>
 
         <div id="editor">
-            <h5 class="text-center">2: Editor Window</h5>
+            <h5 class="text-center">Editor Window</h5>
 
             <!-- Intro -->
             <p class="m_underlined">Intro</p>
@@ -94,8 +95,8 @@
                 will say, and Option nodes represent the options available to the player.
             </p>
             <div class="row">
-                <div class="col-md my-auto">
-                    <img class="m_tutorialImageLarge" src="images/dialogueeditor/full_conversation.png" />
+                <div class="col-md my-auto"><img <img class="m_tutorialImageLarge"
+                        src="images/dialogueeditor/full_conversation.png" />
                 </div>
             </div>
 
@@ -206,7 +207,7 @@
         <hr>
 
         <div id="prefab">
-            <h5 class="text-center">3: Conversation Manager + UI Prefab</h5>
+            <h5 class="text-center">Conversation Manager + UI Prefab</h5>
             <p>A pre-made, customisable UI prefab is provided. The ConversationManager prefab can be dragged as a child
                 of a Canvas.</p>
 
@@ -240,7 +241,7 @@
         <hr>
 
         <div id="start">
-            <h5 class="text-center">4: Triggering a conversation + Code info</h5>
+            <h5 class="text-center">Triggering a conversation + Code info</h5>
             <p>If you are using the ConversationManager UI Prefab, conversations can be triggered by calling a single
                 function:</p>
             <!-- HTML generated using hilite.me -->
@@ -303,8 +304,71 @@ ConversationManager.Instance.EndConversation();         <span style="color: #888
         </div>
         <hr>
 
+        <div id="customInput">
+            <h5 class="text-center">Custom input</h5>
+            <p>Dialogue Editor provides some basic functions which allows you to interact with the
+                Conversation UI. This enables you to support any input method that your game supports, such
+                as Keyboard + Mouse or a Controller</p>
+
+            <p>Three basic functions allow you to cycle to the next or previous option, and to press the
+                currently selected option:</p>
+
+            <!-- HTML generated using hilite.me -->
+            <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <pre style="margin: 0; line-height: 125%"><span style="color: #aaaaaa; font-style: italic">// Cycle to the previous option</span>
+ConversationManager.Instance.SelectPreviousOption();
+<span style="color: #aaaaaa; font-style: italic">// Cycle to the next option</span>
+ConversationManager.Instance.SelectNextOption();
+<span style="color: #aaaaaa; font-style: italic">// Press the currently selected option</span>
+ConversationManager.Instance.PressSelectedOption();
+</pre>
+            </div>
+            <br>
+
+            <p>Here is some example code which shows keyboard support for the Conversation UI:</p>
+
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">Using UnityEngine;
+Using DialogueEditor;
+
+<span style="color: #0000aa">public</span> <span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">ExampleInputManager</span> : MonoBehaviour
+{
+    <span style="color: #0000aa">private</span> <span style="color: #0000aa">void</span> <span style="color: #00aa00">Update</span>()	
+    {
+        <span style="color: #0000aa">if</span> (ConversationManager.Instance != <span style="color: #0000aa">null</span>)
+        {
+            <span style="color: #0000aa">if</span> (ConversationManager.Instance.IsConversationActive)
+            {
+                <span style="color: #0000aa">if</span> (Input.GetKeyDown(KeyCode.UpArrow))
+                    ConversationManager.Instance.SelectPreviousOption();
+                    
+                <span style="color: #0000aa">else</span> <span style="color: #00aa00">if</span> (Input.GetKeyDown(KeyCode.DownArrow))
+                    ConversationManager.Instance.SelectNextOption();
+                    
+                <span style="color: #0000aa">else</span> <span style="color: #00aa00">if</span> (Input.GetKeyDown(KeyCode.F))
+                    ConversationManager.Instance.PressSelectedOption();
+            }
+        }
+    }
+}
+</pre>
+            </div>
+            <br>
+
+
+            <p>There is also an option on the Conversation Manager prefab which allows you to choose whether or
+                not mouse interaction should be enabled.</p>
+
+            <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_allowMouseInteraction.png" />
+
+        </div>
+        <hr>
+
         <div id="callbacks">
-            <h5 class="text-center">5: Callbacks</h5>
+            <h5 class="text-center">Callbacks</h5>
             <p>If you are using the ConversationManager UI Prefab, there are two callbacks you can use which are invoked
                 when a conversation starts and ends, respectively.</p>
             <!-- HTML generated using hilite.me -->
@@ -364,7 +428,7 @@ DialogueEditor.ConversationManager.OnConversationEnded
         <hr>
 
         <div id="datastructure">
-            <h5 class="text-center">6: Conversation datastructure</h5>
+            <h5 class="text-center">Conversation datastructure</h5>
             <p>If you wish to write your own custom UI, and only use the editor-window for creating the conversation
                 object, the conversation object can
                 be deserialized into a simple and easy-to-use datastructure. </p>
@@ -396,7 +460,9 @@ Conversation conversation = NPCConv.Deserialize();
                 a Conversation:
             </p>
             <!-- HTML generated using hilite.me -->
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Conversation</span>
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Conversation</span>
 {
     <span style="color: #008800; font-weight: bold">public</span> SpeechNode Root;
 }
@@ -446,7 +512,8 @@ Conversation conversation = NPCConv.Deserialize();
 {
     <span style="color: #008800; font-weight: bold">public</span> SpeechNode Dialogue;         <span style="color: #888888">// The dialogue following this option.</span>
 }
-</pre></div>
+</pre>
+            </div>
 
 
 

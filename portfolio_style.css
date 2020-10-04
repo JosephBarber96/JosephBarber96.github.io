@@ -1,0 +1,56 @@
+.m_navBar {
+    margin-bottom: 25px;
+}
+
+.m_title {
+    font-family: 'Press Start 2P', cursive;
+} 
+
+.m_websiteHeader {
+    padding-bottom: 50px;
+}
+
+.m_repeatingImageX {
+    background-image: url("./blocc.png");
+    background-repeat: repeat-x;
+}
+
+.m_projectTitle {
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+.m_nesContainer {
+    margin: auto;
+    max-width: 1020px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.m_projectImage {
+    width: 450px;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.m_regularText {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.m_boldText {
+    font-weight: bold;
+}
+
+.m_projectText {
+    font-family: 'Open Sans', sans-serif;
+}
+
+hr {
+     background-color: black;
+}
+
+.m_icon {
+    padding-right: 15px;
+}

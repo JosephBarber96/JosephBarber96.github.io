@@ -7,11 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <!-- My CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- NES.CSS minify -->
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link href="portfolio_style.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
     <title>Joseph Barber</title>
 </head>
@@ -19,8 +26,8 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <span class="navbar-brand m_brand">Joseph Barber</span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top m_navBar">
+        <span class="navbar-brand m_title">Joseph Barber</span>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,79 +35,89 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link ml-auto" href="index.html">Projects</a>
-                <a class="nav-item nav-link ml-auto" href="cv.html">CV</a>
-                <a class="nav-item nav-link ml-auto active" href="#">Contact</a>
+                <a class="nav-item nav-link ml-auto m_title" href="index.html">Projects</a>
+                <a class="nav-item nav-link ml-auto m_title" href="cv.html">CV</a>
+                <a class="nav-item nav-link ml-auto active m_title" href="#">Contact</a>
             </div>
         </div>
     </nav>
 
+    <div class="text-center m_websiteHeader">
+        <h1 class="m_title">Joseph Barber</h1>
+        <h2 class="m_title">Games Programmer</h2>
+    </div>
 
-    <!-- Main body container -->
-    <div class="container m_mainContainer">
+    <!-- NES Container -->
+    <div class="m_nesContainer">
+        <div class="nes-container with-title">
+            <p class="title">Contact</p>
 
-        <!-- Joseph Barber title -->
-        <div class="row">
-            <div class="col-lg">
+            <!-- bootstrap container-->
+            <div class="container">
+
                 <br>
-                <h1 class="text-center">Joseph Barber</h1>
-                <h2 class="text-center">Games Programmer</h2>
-                <br>
-            </div>
-        </div>
-
-
-        <!-- Heading: Contact -->
-        <div class="row m_heading">
-            <div class="col-lg">
-                <h3>Contact.</h3>
-            </div>
-        </div>
-        <br>
-
-        <!-- Contact info -->
-        <div class="row">
-            <div class="col-lg">
-                <!-- Email -->
                 <div class="m_contactInfo">
-                    <img class="m_icon" src="icons/icons8-secured-letter-filled-50.png">
+                    <i class="nes-icon gmail m_icon"></i>
                     <a href="mailto:Joseph_Barber@Hotmail.co.uk">Joseph_Barber@Hotmail.co.uk</a>
                 </div>
 
-                <!-- Linkedin -->
                 <div class="m_contactInfo">
-                    <img class="m_icon" src="icons/icons8-linkedin-filled-50.png">
+                    <i class="nes-icon linkedin m_icon"></i>
                     <a target="_blank" href="https://www.linkedin.com/in/joseph-barber/">Joseph Barber</a>
                 </div>
 
-                <!-- Github -->
                 <div class="m_contactInfo">
-                    <img class="m_icon" src="icons/icons8-github-filled-50.png">
+                    <i class="nes-icon github  m_icon"></i>
                     <a target="_blank" href="https://github.com/JosephBarber96">JosephBarber96</a>
                 </div>
 
-                <!-- Twitter -->
                 <div class="m_contactInfo">
-                    <img class="m_icon" src="icons/icons8-twitter-50.png">
+                    <i class="nes-icon twitter  m_icon"></i>
                     <a target="_blank" href="https://twitter.com/J_Barber96">@J_Barber96</a>
                 </div>
+
             </div>
         </div>
-        <hr>
     </div>
 
+    <br>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+
+
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+            <script>
+                var isPixel = true;
+                function ChangeFont()
+                {
+                    isPixel = !isPixel;
+
+                    normal = "Arial, Helvetica, sans-serif;";
+                    pixel = "'Press Start 2P', cursive;";
+
+                    var elements = document.getElementsByClassName("m_projectText");
+
+                    for (var i = 0; i < elements.length; i++)
+                    {
+                        elements[i].style.fontFamily = (isPixel) ? "Impact,Charcoal,sans-serif" : "'Press Start 2P', cursive;";
+                    }
+
+                    
+                }
+            </script>
 </body>
 
 </html>

@@ -20,6 +20,7 @@
     padding-bottom: 25px;
 }
 
+
 .m_nesContainer {
     margin: auto;
     max-width: 1020px;
@@ -45,6 +46,10 @@
 
 .m_projectText {
     font-family: 'Open Sans', sans-serif;
+}
+
+.m_underline {
+    text-decoration: underline;
 }
 
 hr {

@@ -7,131 +7,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <!-- NES.CSS minify -->
-    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
-
-    <!-- CSS -->
-    <link href="portfolio_style.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- My css -->
+    <link rel="stylesheet" href="portfolioStyle.css">
 
     <title>Joseph Barber</title>
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top m_navBar">
-        <span class="navbar-brand m_title">Joseph Barber</span>
+    <!-- Header -->
+    <header class="text-center">
+        <p class="m_pageTitle text-center">Joseph Barber</p>
+        <hr>
+        <ul class="m_navbarUL">
+            <li class="m_navbarLI"><a href="index.html">Projects</li>
+            <li class="m_navbarLI"><a class="m_navbarActive" href="">CV</a></li>
+            <li class="m_navbarLI"><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link ml-auto m_title" href="index.html">Projects</a>
-                <a class="nav-item nav-link ml-auto active m_title" href="#">CV</a>
-                <a class="nav-item nav-link ml-auto m_title" href="contact.html">Contact</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg">
+                <h5 class="m_cvSectionHeading">Employment</h5>
+                <h5 class="m_cvHeading">2018 - Current: Programmer, Just Add Water (Development) Ltd.</h5>
+                <p>Implementing core gameplay features and mechanics, audio and design tools. Performing profiling and optimisation.</p>
+                <br>
+
+                <h5 class="m_cvSectionHeading">Experience</h5>
+                <h5 class="m_cvHeading">2019 - Ongoing: Sniper Elite VR</h5>
+                <p>Working in a team of three core programmers, implementing new gameplay features and working on game systems.</p>
+                <h5 class="m_cvHeading">2018 - 2019: Ice Age Scrat's Nutty Adventure</h5>
+                <p>Working in a team of three core programmers, my main responsibilities included implementing game audio, core gameplay mechanics, design tools and profiling and optimisation.</p>
+                <br>
+
+                <h5 class="m_cvSectionHeading">Education</h5>
+                <h5 class="m_cvHeading">2015 - 2018: University of Suffolk</h5>
+                <ul>
+                    <li>BSc (Hons) Computer Games Programming - First class with Honors.</li>
+                    <li>2018 Computer Games Programming Student of the Year.</li>
+                </ul>
+                <br>
             </div>
         </div>
-    </nav>
 
-    <div class="text-center m_websiteHeader">
-        <h1 class="m_title">Joseph Barber</h1>
-        <h2 class="m_title">Games Programmer</h2>
-    </div>
-
-    <!-- NES Container -->
-    <div class="m_nesContainer">
-        <div class="nes-container with-title">
-            <p class="title">Curriculum vitae</p>
-
-            <!-- bootstrap container-->
-            <div class="container">
-
-                <br>
-                <h4>Employment</h4>
-                <br>
-                <h5 class="m_projectText m_boldText">2018 - Current: Programmer, Just Add Water (Development) Ltd.</h5>
-                <p class="m_projectText">Implementing core gameplay features and mechanics, audio and design tools. Performing profiling and optimisation.</p>
-                <br>
-                <h4>Experience</h4>
-                <br>
-                <h5 class="m_projectText m_boldText">2019 - Ongoing: Sniper Elite VR</h5>
-                <p class="m_projectText">Working in a team of three core programmers, implementing new gameplay features and working on game systems.</p>
-                <br>
-                <h5 class="m_projectText m_boldText">2018 - 2019: Ice Age Scrat's Nutty Adventure</h5>
-                <p class="m_projectText">Working in a team of three core programmers, my main responsibilities included implementing game audio, core gameplay mechanics, design tools and profiling and optimisation.</p>
-                <br>
-                <h4>Education</h4>
-                <br>
-                <h5 class="m_projectText m_boldText">2015 - 2018: University of Suffolk</h5>
-                <div class="lists">
-                    <ul class="nes-list is-disc">
-                      <li class="m_projectText">BSc (Hons) Computer Games Programming - First class with Honors.</li>
-                      <li class="m_projectText">2018 Computer Games Programming Student of the Year..</li>
-                    </ul>
-                </div>
-                <br>
-                <h5 class="m_projectText m_boldText">2013 - 2015: Lowestoft Sixth Form College</h5>
-                <div class="lists">
-                    <ul class="nes-list is-disc">
-                      <li class="m_projectText">BTEC Level 3 Extended Diploma in IT - D*D*D* (Triple Distinction star).
-                    </li>
-                    </ul>
-                </div>
-                <!--
+        <div class="row">
+            <div class="col-lg">
                 <hr>
-                <a href="#" target="_blanK"><p class="m_projectText">Also available in pdf format.</p></a>
-                -->
+                <p>Also available as a <a href="">pdf.</a></p>
             </div>
         </div>
     </div>
 
-    <br>
 
+    <!-- Optional JavaScript; choose one of the two! -->
 
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
 
-
-
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
-
-            <script>
-                var isPixel = true;
-                function ChangeFont()
-                {
-                    isPixel = !isPixel;
-
-                    normal = "Arial, Helvetica, sans-serif;";
-                    pixel = "'Press Start 2P', cursive;";
-
-                    var elements = document.getElementsByClassName("m_projectText");
-
-                    for (var i = 0; i < elements.length; i++)
-                    {
-                        elements[i].style.fontFamily = (isPixel) ? "Impact,Charcoal,sans-serif" : "'Press Start 2P', cursive;";
-                    }
-
-                    
-                }
-            </script>
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
 </body>
 
 </html>

@@ -1,0 +1,157 @@
+/* Html Elements */
+
+canvas {
+    display: block;
+    background-color: #1c1c1c;
+}
+
+body {
+    display: block;
+    margin: 0;
+}
+
+
+/* Canvas */
+
+#canvas_container {
+    position: relative;
+}
+
+#canvas_container canvas, #canvas_overlay {
+    position: absolute;
+}
+
+
+/* Diagonal line */
+
+@media only screen and (min-width: 1520px) {   
+    .diagonal-box {
+        border-radius: 25px;
+    } 
+}
+
+.diagonal-box {
+     background-color:#2e2e2e;
+    transform: skewY(-2deg);
+} 
+.diagonal-box-content { 	
+    margin: 0 auto; 
+    transform: skewY(2deg);
+}
+
+
+/* Break Points for Name at top of the screen */
+
+@media only screen and (min-width: 536px) {   
+    .m_nameTopPadding {
+        padding-top: 75px;
+    } 
+}
+
+@media only screen and (max-width: 537px) {   
+    .m_nameTopPadding {
+        padding-top: 10px;
+    } 
+}
+
+
+/* General classes */
+
+@media only screen and (min-width: 990px) {   
+    .m_contentBoxTopPadding {
+        padding-top: 30px;
+    } 
+
+    .m_projectInfoPadding {
+        padding-top: 50px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .m_contentBoxTopPadding {
+        padding-top: 20px;
+    } 
+
+    .m_projectInfoPadding {
+        padding-top: 10px;
+    }
+}
+
+.m_contentWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+}
+
+.m_background {
+    background-color: #1c1c1c;
+}
+
+.m_center_title {
+    margin: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.m_pageTitle {
+    font-size: 5em;
+}
+
+.m_pageSubTitle {
+    font-family: 'Archivo', sans-serif;
+    color: whitesmoke;
+    font-size: 1.5em;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.m_headerText {
+    font-family: 'Archivo', sans-serif;
+    color: #66FCF1;
+    font-weight: bold;
+    text-shadow: 5px 5px rgba(0, 0, 0, 1);
+}
+
+.m_sectionTitle {
+    font-size: 3.5em;
+}
+
+.m_projectTitle {
+    font-size: 2.5em;
+}
+
+.m_bodyText {
+    font-family: 'Roboto', sans-serif;
+    color: whitesmoke;
+    font-size: 1.2em;
+}
+
+.m_cvSubheading {
+    text-decoration: underline;
+    margin-bottom: 0;
+}
+
+.m_projectLink {
+    color: skyblue;
+}
+
+.m_underline {
+    text-decoration: underline;
+}
+
+.m_projectImage {
+    max-width: 80%;
+}
+
+.m_topBar {
+    width: 100%;
+    background-color: #474747;
+    height: 25px;
+}
+
+.contactIcon {
+    margin-right: 25px;
+}

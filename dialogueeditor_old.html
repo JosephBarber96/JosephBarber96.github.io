@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="dialogueeditordocs.css">
+
+    <title>Dialogue Editor</title>
+</head>
+
+<body>
+
+
+
+    <div class="container m_mainContainer">
+
+        <div class="row">
+            <div class="col-lg">
+                <h2 style="margin-top: 15px; margin-bottom: 15px" class="text-center">Unity Tool: Dialogue Editor </h2>
+            </div>
+        </div>
+
+
+
+        <!-- Links -->
+        <div class="row m_heading">
+            <div class="col-lg">
+                <h4>Links.</h4>
+            </div>
+        </div>
+        <br>
+        <ol>
+            <li><a target="_blank" href="https://assetstore.unity.com/packages/slug/168329">Asset store.</a></li>
+            <li><a target="_blank" href="https://www.youtube.com/playlist?list=PLfRF6lnXtGqjrhzyQhidqMD-shMHGReXi">Video Tutorial Playlist</a></li>
+        </ol>
+
+
+
+        <!-- Video tutorial -->
+        <div class="row m_heading">
+            <div class="col-lg">
+                <h4>Video Tutorial.</h4>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm">
+                <iframe src="https://www.youtube.com/embed/HbrNrvX2Ft4" class="m_centeredVideo"> </iframe>
+            </div>
+        </div>
+        <br>
+
+        <!-- Written tutorial -->
+        <div class="row m_heading">
+            <div class="col-lg">
+                <h4>Written Tutorial.</h4>
+            </div>
+        </div>
+        <br>
+        <ol>
+            <li><a href="#what">What is Dialogue Editor?</a></li>
+            <li><a href="#editor">Editor Window</a></li>
+            <li><a href="#prefab">Conversation Manager UI Prefab</a></li>
+            <li><a href="#start">Triggering a conversation and Code info</a></li>
+            <li><a href="#customInput">Custom Input</a></li>
+            <li><a href="#callbacks">Callbacks</a></li>
+            <li><a href="#datastructure">Conversation datastructure (for creating your own UI)</a></li>
+        </ol>
+        <hr>
+
+        <div id="what">
+            <h5 class="text-center">What is Dialogue Editor?</h5>
+            <p>Dialogue Editor is a Unity tool that allows you to quickly and easily add conversations into your game.
+            </p>
+            <p>The tool comes with an editor window that allows you to create and edit conversations.</p>
+            <p>This tool also comes with a pre-made, customisable UI prefab so that no UI programming is required.
+                However, if you are comfortable with programming and wish to create your own UI implementation,
+                each conversation can be accessed as a simple data structure.</p>
+        </div>
+        <hr>
+
+        <div id="editor">
+            <h5 class="text-center">Editor Window</h5>
+
+            <!-- Intro -->
+            <p class="m_underlined">Intro</p>
+            <p>Conversations are made up of Speech nodes and Option nodes. Speech nodes represent something a character
+                will say, and Option nodes represent the options available to the player.
+            </p>
+            <div class="row">
+                <div class="col-md my-auto"><img <img class="m_tutorialImageLarge"
+                        src="images/dialogueeditor/full_conversation.png" />
+                </div>
+            </div>
+
+            <!-- Creating a conversation object -->
+            <p class="m_underlined">Creating a conversation object</p>
+            <p>In order to create a conversation, create a new GameObject and give it the script NPCConversation. In
+                order to open the Editor Window, select Window -> DialogueEditor. Select a conversation in the hierarchy
+                in order to edit the conversation in the editor window.
+            </p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_1.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_2.png" />
+                </div>
+            </div>
+
+            <!-- Speech nodes -->
+            <p class="m_underlined">Speech nodes.</p>
+            <p>When you create a new conversation, it will contain a single speech node - this is the beginning of the
+                conversation.</p>
+
+            <p>Select a speech node to edit it. A speech node has the following variables:</p>
+            <ul>
+                <li><b>Character Name:</b> This is the name of the character who is speaking.</li>
+                <li><b>Dialogue:</b> This is the speech for the node.</li>
+                <li><b>Automatically Advance:</b> This option is available if a speech node leads onto another speech
+                    node, or nothing.
+                    When this option is selected, the dialogue will automatically continue without the user needing to
+                    click anything.
+                    <ul>
+                        <li><b>Display Continue Option:</b> Should the "Continue" / "End" options still display?</li>
+                        <li><b>Dialogue Time:</b> How long to wait before the dialogue automatically advances.</li>
+                    </ul>
+                </li>
+                <li><b>Icon:</b> This is the icon of the NPC that will appear next to the speech.</li>
+                <li><b>Audio:</b> This is an optional variable, you can play audio with this speech.</li>
+                <li><b>TMP Font:</b> This is the TextMeshPro font for this speech. You are able to set fonts on a
+                    node-by-node
+                    basis.</li>
+                <li><b>Events:</b> These are Unity Events that will run when this speech node in a conversation is
+                    played.</li>
+            </ul>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_4.png" />
+                </div>
+            </div>
+
+            <p>Speech nodes can either contain options for the user to select, lead onto other speech nodes, or have no
+                connections.</p>
+            <ul>
+                <li>If a speech node connects to option nodes, these options will appear for the player.</li>
+                <li>If a speech node connects to another speech node, the following speech node will occur afterwards.
+                </li>
+                <li>If a speech node is connected to nothing, it marks the end of the conversation.</li>
+            </ul>
+
+            <p>Right-clicking on a Speech node allows you to either create a new option, connect to an existing option,
+                create a new Speech node, or connect to an existing speech node.</p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_5.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_6.png" />
+                </div>
+            </div>
+
+            <!-- Option nodes -->
+            <p class="m_underlined">Option nodes.</p>
+            <p>Option nodes will lead onto other speech nodes. When a user selects an option, the connected speech node
+                will occur next.</p>
+            <p>Select an option node to edit it. An option node has the following variables:</p>
+            <ul>
+                <li><b>Option text:</b> This is the text for the option.</li>
+                <li><b>TMP Font:</b> This is the TextMeshPro font for this option. You are able to set fonts on a
+                    node-by-node
+                    basis.</li>
+            </ul>
+            <p>Right-clicking on an Option node provides options to creating a new speech node or connecting to an
+                existing speech node.</p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_7.png" />
+                </div>
+            </div>
+
+
+
+            <!-- Deleting nodes, deleting connections, etc. -->
+            <p class="m_underlined">Deleting nodes and connections</p>
+            <p>Unwanted connections between nodes can be deleted by right-clicking on the arrow and clicking "Delete
+                this connection"</p>
+            <p>Likewise, unwanted nodes can also be deleted by right-clicking on the node and clicking "Delete this
+                node". Deleting a node will also delete any connection to and from this node.</p>
+
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_8.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_9.png" />
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div id="prefab">
+            <h5 class="text-center">Conversation Manager + UI Prefab</h5>
+            <p>A pre-made, customisable UI prefab is provided. The ConversationManager prefab can be dragged as a child
+                of a Canvas.</p>
+
+            <p>Recommended settings:</p>
+            <ul>
+                <li>Canvas - RenderMode: "Screen Space - Overlay"</li>
+                <li>Canvas Scaler - UI Scale Mode: "Scale with Screen size"</li>
+            </ul>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_canvas.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_canvasComponent.png" />
+                </div>
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_canvasScalarComponent.png" />
+                </div>
+            </div>
+
+            <p>The ConversationManager provides options for the Background image of the Dialogue box and the Options
+                box. These images can be optionally 9-sliced images.
+                A preview render is displayed above the options. You can also select text-scrolling options.
+            </p>
+            <div class="row">
+                <div class="col-md my-auto">
+                    <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_conversationManager.png" />
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div id="start">
+            <h5 class="text-center">Triggering a conversation + Code info</h5>
+            <p>If you are using the ConversationManager UI Prefab, conversations can be triggered by calling a single
+                function:</p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">ConversationManager.Instance.StartConversation();
+</pre>
+            </div>
+            <br>
+
+            <p>Note: You will need to add the "DialogueEditor" namespace to your script. This can be done by adding the
+                following line at the top: </p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;
+</pre>
+            </div>
+            <br>
+
+
+            <p>Here is some example code, which shows a very basic NPC class which begins a conversation when the NPC is
+                clicked on: </p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">UnityEngine</span>;
+<span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">NPC</span> : MonoBehaviour
+{
+    <span style="color: #008800; font-weight: bold">public</span> NPCConversation Conversation;
+
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">OnMouseOver</span>()
+    {
+        <span style="color: #008800; font-weight: bold">if</span> (Input.GetMouseButtonDown(<span style="color: #6600EE; font-weight: bold">0</span>))
+        {
+            ConversationManager.Instance.StartConversation(Conversation);
+        }
+    }
+}
+</pre>
+            </div>
+            <br>
+            <p>There are also a number of additional Properties and Functions available to you:</p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">ConversationManager.Instance.IsConversationActive;      <span style="color: #888888">// Is a conversation currently happening?</span>
+ConversationManager.Instance.CurrentConversation;       <span style="color: #888888">// The current conversation (null if no conversation active).</span>
+ConversationManager.Instance.EndConversation();         <span style="color: #888888">// End a conversation early (e.g. player walks off).</span>
+</pre>
+            </div>
+
+
+
+
+
+
+        </div>
+        <hr>
+
+        <div id="customInput">
+            <h5 class="text-center">Custom input</h5>
+            <p>Dialogue Editor provides some basic functions which allows you to interact with the
+                Conversation UI. This enables you to support any input method that your game supports, such
+                as Keyboard + Mouse or a Controller</p>
+
+            <p>Three basic functions allow you to cycle to the next or previous option, and to press the
+                currently selected option:</p>
+
+            <!-- HTML generated using hilite.me -->
+            <div
+            style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+            <pre style="margin: 0; line-height: 125%"><span style="color: #aaaaaa; font-style: italic">// Cycle to the previous option</span>
+ConversationManager.Instance.SelectPreviousOption();
+<span style="color: #aaaaaa; font-style: italic">// Cycle to the next option</span>
+ConversationManager.Instance.SelectNextOption();
+<span style="color: #aaaaaa; font-style: italic">// Press the currently selected option</span>
+ConversationManager.Instance.PressSelectedOption();
+</pre>
+            </div>
+            <br>
+
+            <p>Here is some example code which shows keyboard support for the Conversation UI:</p>
+
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">Using UnityEngine;
+Using DialogueEditor;
+
+<span style="color: #0000aa">public</span> <span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">ExampleInputManager</span> : MonoBehaviour
+{
+    <span style="color: #0000aa">private</span> <span style="color: #0000aa">void</span> <span style="color: #00aa00">Update</span>()	
+    {
+        <span style="color: #0000aa">if</span> (ConversationManager.Instance != <span style="color: #0000aa">null</span>)
+        {
+            <span style="color: #0000aa">if</span> (ConversationManager.Instance.IsConversationActive)
+            {
+                <span style="color: #0000aa">if</span> (Input.GetKeyDown(KeyCode.UpArrow))
+                    ConversationManager.Instance.SelectPreviousOption();
+                    
+                <span style="color: #0000aa">else</span> <span style="color: #00aa00">if</span> (Input.GetKeyDown(KeyCode.DownArrow))
+                    ConversationManager.Instance.SelectNextOption();
+                    
+                <span style="color: #0000aa">else</span> <span style="color: #00aa00">if</span> (Input.GetKeyDown(KeyCode.F))
+                    ConversationManager.Instance.PressSelectedOption();
+            }
+        }
+    }
+}
+</pre>
+            </div>
+            <br>
+
+
+            <p>There is also an option on the Conversation Manager prefab which allows you to choose whether or
+                not mouse interaction should be enabled.</p>
+
+            <img class="m_tutorialImageSmall" src="images/dialogueeditor/tut_allowMouseInteraction.png" />
+
+        </div>
+        <hr>
+
+        <div id="callbacks">
+            <h5 class="text-center">Callbacks</h5>
+            <p>If you are using the ConversationManager UI Prefab, there are two callbacks you can use which are invoked
+                when a conversation starts and ends, respectively.</p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">
+DialogueEditor.ConversationManager.OnConversationStarted
+DialogueEditor.ConversationManager.OnConversationEnded
+</pre>
+            </div>
+            <br>
+
+            <p>Note: You will need to add the "DialogueEditor" namespace to your script. This can be done by adding the
+                following line at the top: </p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;
+</pre>
+            </div>
+            <br>
+
+            <p>Example use-case:</p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">UnityEngine</span>;
+<span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ExampleClass</span> : MonoBehaviour
+{
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">OnEnable</span>()
+    {
+        ConversationManager.OnConversationStarted += ConversationStart;
+        ConversationManager.OnConversationEnded += ConversationEnd;
+    }
+
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">OnDisable</span>()
+    {
+        ConversationManager.OnConversationStarted -= ConversationStart;
+        ConversationManager.OnConversationEnded -= ConversationEnd;
+    }
+
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">ConversationStart</span>()
+    {
+        Debug.Log(<span style="background-color: #fff0f0">&quot;A conversation has began.&quot;</span>);
+    }
+
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">ConversationEnd</span>()
+    {
+        Debug.Log(<span style="background-color: #fff0f0">&quot;A conversation has ended.&quot;</span>);
+    }
+}
+</pre>
+            </div>
+        </div>
+        <hr>
+
+        <div id="datastructure">
+            <h5 class="text-center">Conversation datastructure</h5>
+            <p>If you wish to write your own custom UI, and only use the editor-window for creating the conversation
+                object, the conversation object can
+                be deserialized into a simple and easy-to-use datastructure. </p>
+
+            <p>Note: You will need to add the "DialogueEditor" namespace to your script. This can be done by adding the
+                following line at the top: </p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre
+                    style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">using</span> <span style="color: #0e84b5; font-weight: bold">DialogueEditor</span>;</pre>
+            </div>
+            <br>
+
+            <p>In order to deserialize the conversation, NPCConversation contains a function for doing so: this returns
+                an object of type "Conversation":</p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%">NPCConversation NPCConv;
+Conversation conversation = NPCConv.Deserialize();
+</pre>
+            </div>
+
+            <br>
+            <p>A NPCConversation deserializes into a tree-like data structure. A "Conversation" object contains a single
+                member which is the root speech node of the conversation. From here,
+                the nodes are connected in a tree-like pattern. The following classes make up the tree-like structure of
+                a Conversation:
+            </p>
+            <!-- HTML generated using hilite.me -->
+            <div
+                style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Conversation</span>
+{
+    <span style="color: #008800; font-weight: bold">public</span> SpeechNode Root;
+}
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">abstract</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ConversationNode</span>
+{
+	<span style="color: #888888">// The main body text</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">string</span> Text;
+	
+    <span style="color: #008800; font-weight: bold">public</span> TMPro.TMP_FontAsset TMPFont;
+}
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">SpeechNode</span> : ConversationNode
+{
+	<span style="color: #888888">// The name of the speaker</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">string</span> Name;
+	
+	<span style="color: #888888">// Should this dialogue node automatically advance?</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">bool</span> AutomaticallyAdvance; 
+	
+	<span style="color: #888888">// Should the &quot;Continue&quot; / &quot;End&quot; buttons still be visible?</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">bool</span> AutoAdvanceShouldDisplayOption; 
+	
+	<span style="color: #888888">// How long to wait before advancing</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">float</span> TimeUntilAdvance; 
+	
+	<span style="color: #888888">// The Icon of the spaker</span>
+    <span style="color: #008800; font-weight: bold">public</span> Sprite Icon;
+	
+	<span style="color: #888888">// Audio to play</span>
+    <span style="color: #008800; font-weight: bold">public</span> AudioClip Audio;
+	
+	<span style="color: #888888">// Normalised volume, 0-1, of the audio</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">float</span> Volume;
+	
+	<span style="color: #888888">// The Options available on this Speech node, if any.</span>
+    <span style="color: #008800; font-weight: bold">public</span> List&lt;OptionNode&gt; Options;
+
+	<span style="color: #888888">// The Speech node following this, if any.	</span>
+    <span style="color: #008800; font-weight: bold">public</span> SpeechNode Dialogue; 
+	
+	<span style="color: #888888">// The UnityEvent</span>
+    <span style="color: #008800; font-weight: bold">public</span> UnityEngine.Events.UnityEvent Event;
+}
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">OptionNode</span> : ConversationNode
+{
+    <span style="color: #008800; font-weight: bold">public</span> SpeechNode Dialogue;         <span style="color: #888888">// The dialogue following this option.</span>
+}
+</pre>
+            </div>
+
+
+
+
+
+
+        </div>
+        <hr>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // The function actually applying the offset
+        function offsetAnchor() {
+            if (location.hash.length !== 0) {
+                window.scrollTo(window.scrollX, window.scrollY - 75);
+            }
+        }
+
+        // Captures click events of all <a> elements with href starting with #
+        $(document).on('click', 'a[href^="#"]', function (event) {
+            // Click events are captured before hashchanges. Timeout
+            // causes offsetAnchor to be called after the page jump.
+            window.setTimeout(function () {
+                offsetAnchor();
+            }, 0);
+        });
+
+        // Set the offset when entering page with hash present in the url
+        window.setTimeout(offsetAnchor, 0);
+    </script>
+</body s>
+
+</html>
